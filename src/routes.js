@@ -10,9 +10,12 @@ routes.get('/', (request, response) => {
 });
 
 // Categoria de Estabelecimentos
+routes.get('/estabelecimentos/categorias', EstabelecimentoCategoriaController.index);
 routes.post('/estabelecimentos/categorias', EstabelecimentoCategoriaController.store);
 
 // Estabelecimentos
+routes.get('/estabelecimentos', EstabelecimentoController.index);
+routes.post('/estabelecimentos', EstabelecimentoController.store);
 
 
 module.exports = routes;

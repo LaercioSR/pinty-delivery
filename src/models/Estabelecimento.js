@@ -13,6 +13,7 @@ class Estabelecimento extends Model {
             categoria_id: Sequelize.INTEGER,
         }, {
             sequelize: database,
+            modelName: 'estabelecimentos',
         });
     }
 }
