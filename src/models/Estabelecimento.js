@@ -1,20 +1,23 @@
-const { Model } = require('sequelize');
-const Sequelize = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
 class Estabelecimento extends Model {
     static init(database) {
         super.init({
-            descricao: Sequelize.STRING,
-            sobre: Sequelize.STRING(1024),
-            horario_funcionamento: Sequelize.STRING,
-            endereco: Sequelize.STRING,
-            foto: Sequelize.STRING,
-            whatsapp: Sequelize.STRING,
-            categoria_id: Sequelize.INTEGER,
+            nome: DataTypes.STRING,
+            sobre: DataTypes.STRING(1024),
+            horario_funcionamento: DataTypes.STRING,
+            endereco: DataTypes.STRING,
+            foto: DataTypes.STRING,
+            whatsapp: DataTypes.STRING,
+            // categoria_id: DataTypes.INTEGER,
         }, {
             sequelize: database,
-            modelName: 'estabelecimentos',
+            tableName: 'estabelecimentos',
         });
+    }
+
+    static associate(models) {
+        this.belongsTo(models.EstabelecimentoCategoria, { foreignKey: 'categoria_id', as: 'categoria' });
     }
 }
 

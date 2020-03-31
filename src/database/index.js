@@ -9,4 +9,7 @@ const database = new Sequelize(dbConfig);
 EstabelecimentoCategoria.init(database);
 Estabelecimento.init(database);
 
+Estabelecimento.associate(database.models);
+EstabelecimentoCategoria.associate(database.models);
+
 module.exports = database;

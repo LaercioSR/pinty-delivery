@@ -36,6 +36,8 @@ module.exports = {
             tableName: 'estabelecimento_categorias'
           },
           key: 'id',
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
         },
         allowNull: false,
       },
