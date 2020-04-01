@@ -1,0 +1,44 @@
+/* -- Barra de Navegação -- */
+.img-logo{
+    height: 45px;
+    width: 195px;
+    display: block;
+    background: url('../../assets/marca.png') no-repeat;
+    background-size: contain;
+    color: transparent;
+}
+
+.navbar-pinty-delivery{
+    padding: 15px 25px;
+    background: rgb(245, 245, 245)!important;
+    border: none;
+}
+
+.navbar-brand{
+    padding: 5px 15px;
+}
+
+.divisor{
+    width: 1px;
+    height: 25px;
+    background: black;
+    margin: 12px 25px;
+}
+
+.navbar-light .navbar-nav .nav-link, footer a {
+    color: black;
+    transition: color 0.3s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, footer a:hover {
+    color: #e00000;
+    background: none;
+}
+
+.input-busca {
+    background: none;
+    border-bottom: 1px solid black;
+    margin-left: 25px;
+    height: 80%;
+    width: 85%;
+}
