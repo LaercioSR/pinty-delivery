@@ -4,12 +4,12 @@ class Estabelecimento extends Model {
     static init(database) {
         super.init({
             nome: DataTypes.STRING,
-            sobre: DataTypes.STRING(1024),
+            sobre: DataTypes.TEXT,
             horario_funcionamento: DataTypes.STRING,
             endereco: DataTypes.STRING,
-            foto: DataTypes.STRING,
+            imagem: DataTypes.STRING,
             whatsapp: DataTypes.STRING,
-            // categoria_id: DataTypes.INTEGER,
+            solicitacao: DataTypes.CHAR(2),
         }, {
             sequelize: database,
             tableName: 'estabelecimentos',

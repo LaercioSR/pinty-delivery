@@ -16,6 +16,7 @@ routes.post('/estabelecimentos/categorias', EstabelecimentoCategoriaController.s
 // Estabelecimentos
 routes.get('/estabelecimentos', EstabelecimentoController.index);
 routes.post('/estabelecimentos', EstabelecimentoController.store);
+routes.get('/estabelecimentos/imagem/:imagem', EstabelecimentoController.getImagem);
 
 
 module.exports = routes;

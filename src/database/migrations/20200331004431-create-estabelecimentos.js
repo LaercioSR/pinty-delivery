@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
       },
       sobre: {
-        type: Sequelize.STRING(1024),
+        type: Sequelize.TEXT,
       },
       horario_funcionamento: {
         type: Sequelize.STRING,
@@ -22,7 +22,7 @@ module.exports = {
       endereco: {
         type: Sequelize.STRING,
       },
-      foto: {
+      imagem: {
         type: Sequelize.STRING,
       },
       whatsapp: {
@@ -40,6 +40,11 @@ module.exports = {
           onDelete: 'CASCADE',
         },
         allowNull: false,
+      },
+      solicitacao: {
+        type: Sequelize.CHAR(2),
+        allowNull: false,
+        defaultValue: 'N',
       },
       created_at: {
         type: Sequelize.DATE,
