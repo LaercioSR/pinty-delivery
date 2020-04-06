@@ -10,8 +10,10 @@
 
 .navbar-pinty-delivery{
     padding: 15px 25px;
-    background: rgb(245, 245, 245)!important;
+    /* background: rgb(245, 245, 245)!important; */
+    background: rgb(255, 0, 0)!important;
     border: none;
+    font-size: 20px;
 }
 
 .navbar-brand{
@@ -26,19 +28,39 @@
 }
 
 .navbar-light .navbar-nav .nav-link, footer a {
-    color: black;
+    color: white;
     transition: color 0.3s;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, footer a:hover {
-    color: #e00000;
+    color: #920000;
     background: none;
 }
 
 .input-busca {
     background: none;
-    border-bottom: 1px solid black;
+    border: none;
+    color: white;
+    border-bottom: 1px solid white;
     margin-left: 25px;
-    height: 80%;
-    width: 85%;
+    height: 90%;
+    width: 95%;
+}
+
+.input-busca:hover {
+    background: rgba(255, 255, 255, 0.75);
+    border: none;
+}
+
+.input-busca:focus {
+    background: rgba(255, 255, 255, 0.55);
+    border: none;
+    color: #920000;
+    border-bottom: 1px solid white;
+    outline: none;
+    box-shadow: none;
+}
+
+.input-busca::placeholder {
+    color: white;
 }

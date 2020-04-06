@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, NavDropdown, Form/*, Button*/ } from 'react-bootstrap';
 // import { MdSearch } from 'react-icons/md';
+
+import api from '../../services/api';
 
 import './style.css';
 
 import marca from '../../assets/marca.png';
 
-class NavbarPintyDelivery extends React.Component {
-    render() {
+const NavbarPintyDelivery = () => {
+
+    const [categorias, setCategorias] = useState([]);
+
+    useEffect(() => {
+        api.get('estabelecimentos/categorias').then(response => {
+            setCategorias(response.data);
+        })
+    }, []);
+    
         return (
             <div>
                 <Navbar bg="light" expand="md" className="navbar-pinty-delivery">
@@ -22,19 +32,20 @@ class NavbarPintyDelivery extends React.Component {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="/estabelecimentos/cadastrar" className="ml-auto">Registre seu Delivery</Nav.Link>
+                        </Nav>
                         <Nav className="ml-auto">
-                            <NavDropdown title="Estabelecimentos" id="basic-nav-dropdown" className="ml-auto">
-                                <NavDropdown.Item href="/estabelecimentos/categorias/1">Restaurante</NavDropdown.Item>
-                                <NavDropdown.Item href="/estabelecimentos/categorias/2">Padaria</NavDropdown.Item>
-                                <NavDropdown.Item href="/estabelecimentos/categorias/3">Supermercado</NavDropdown.Item>
-                                {/* <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+                            
+                            <NavDropdown title="Categorias" id="basic-nav-dropdown" className="ml-auto">
+                                {categorias.map(categoria => (
+                                    <NavDropdown.Item href={"/estabelecimentos/categorias/"+categoria.id}>{categoria.descricao}</NavDropdown.Item>
+                                ))}
                             </NavDropdown>
-                            <Nav.Link href="/estabelecimentos/cadastrar" className="ml-auto">Cadastre seu Delivery</Nav.Link>
                             {/* <Nav.Item className="divisor" role="separator"/> */}
                         </Nav>
                         <Form inline>
-                            <Form.Control type="text" placeholder="Buscar estabelecimento" className="mr-auto border-left-0 border-right-0 border-top-0 border-dark input-busca" />
+                            <Form.Control type="text" placeholder="Buscar estabelecimento" className="mr-auto  input-busca" />
                         </Form>
                         {/* <Form inline>
                             <Form.Control type="text" placeholder="Buscar estabelecimento" className="mr-sm-2" />
@@ -47,7 +58,7 @@ class NavbarPintyDelivery extends React.Component {
             </div>
             
         );
-    }
+    
 }
 
 export default NavbarPintyDelivery;
