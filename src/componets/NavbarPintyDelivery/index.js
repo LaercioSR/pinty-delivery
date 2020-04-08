@@ -33,13 +33,13 @@ const NavbarPintyDelivery = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/estabelecimentos/cadastrar" className="ml-auto">Registre seu Delivery</Nav.Link>
+                            <Nav.Link href="/estabelecimentos/cadastrar" className="mr-auto">Registre seu Delivery</Nav.Link>
                         </Nav>
                         <Nav className="ml-auto">
                             
-                            <NavDropdown title="Categorias" id="basic-nav-dropdown" className="ml-auto">
+                            <NavDropdown title="Categorias" className="mr-auto" alignRight>
                                 {categorias.map(categoria => (
-                                    <NavDropdown.Item href={"/estabelecimentos/categorias/"+categoria.id}>{categoria.descricao}</NavDropdown.Item>
+                                    <NavDropdown.Item href={"/estabelecimentos/categorias/"+categoria.id} className="item-dropdown">{categoria.descricao}</NavDropdown.Item>
                                 ))}
                             </NavDropdown>
                             {/* <Nav.Item className="divisor" role="separator"/> */}

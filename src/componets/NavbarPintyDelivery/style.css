@@ -37,6 +37,10 @@
     background: none;
 }
 
+.item-dropdown {
+    color: red!important;
+}
+
 .input-busca {
     background: none;
     border: none;
