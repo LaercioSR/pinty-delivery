@@ -1,24 +1,37 @@
 .home-container {
-    width: 100%;
+    margin: 0 auto;
+    width: 70%;
 }
 
-.card-estabelecimento {
-    background: white!important;
-    padding: 20px 20px 20px 30px;
+h1 {
+    text-align: center;
+    margin: 25px 0 10px 0;
+    font-size: 35px;
+    color: #920000;
 }
 
-.imagem-perfil {
-    width: 128px;
-    height: 128px;
-    border-radius: 8px;
-    border: 5px solid rgb(243, 243, 243);
+@media (max-width: 750px) {
+    .home-container {
+        width: 95%;
+    }
 }
 
-.button-whatsapp {
-    background-color: rgb(14, 251, 14);
-    padding: 0 5px;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    border-radius: 8px;
+.home-container .grid {
+    display: grid;
+    gap: 2em;
+}
+
+@media (min-width: 800px) {
+    .home-container .grid {
+        grid-template-columns: repeat(1, 800px);
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    .home-container .grid {
+        grid-template-columns: repeat(2, 500px);
+        align-content: center;
+        justify-content: center;
+    }
 }
