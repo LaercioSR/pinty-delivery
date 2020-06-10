@@ -30,6 +30,7 @@
 .button-whatsapp {
     background-color: rgb(14, 251, 14);
     color: #fff;
+    text-decoration: none;
     padding: 2px 10px;
     border: none;
     outline: none;
@@ -37,6 +38,12 @@
     border-radius: 8px;
     margin-left: 55px;
     font-weight: bold;
+}
+
+.button-whatsapp:hover {
+    background-color: rgb(13, 175, 13);
+    color: #fff;
+    text-decoration: none;
 }
 
 @media (max-width: 750px) {
