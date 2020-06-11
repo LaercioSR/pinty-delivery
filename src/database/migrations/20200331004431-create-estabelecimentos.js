@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('estabelecimentos', { 
+    return queryInterface.createTable('estabelecimentos', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -15,9 +15,6 @@ module.exports = {
       },
       sobre: {
         type: Sequelize.TEXT,
-      },
-      horario_funcionamento: {
-        type: Sequelize.STRING,
       },
       endereco: {
         type: Sequelize.STRING,
@@ -42,7 +39,7 @@ module.exports = {
         allowNull: false,
       },
       solicitacao: {
-        type: Sequelize.CHAR(2),
+        type: Sequelize.CHAR(1),
         allowNull: false,
         defaultValue: 'N',
       },
