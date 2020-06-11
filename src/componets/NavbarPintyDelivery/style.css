@@ -30,6 +30,7 @@
 .navbar-light .navbar-nav .nav-link, footer a {
     color: white;
     transition: color 0.3s;
+    font-weight: bold;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, footer a:hover {
@@ -67,4 +68,5 @@
 
 .input-busca::placeholder {
     color: white;
+    font-weight: bold;
 }
