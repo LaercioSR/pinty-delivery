@@ -24,7 +24,7 @@ module.exports = {
                 endereco: estabelecimento.endereco,
                 whatsapp: estabelecimento.whatsapp,
                 categoria: estabelecimento.categoria,
-                imagem_url: process.env.API_URL + '/uploads/estabelecimento_images/' + estabelecimento.imagem,
+                imagem_url: process.env.APP_URL + '/uploads/estabelecimento_images/' + estabelecimento.imagem,
             };
         });
 
