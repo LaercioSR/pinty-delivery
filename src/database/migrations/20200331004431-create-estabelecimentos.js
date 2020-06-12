@@ -26,6 +26,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       categoria_id: {
         type: Sequelize.INTEGER,
         references: {

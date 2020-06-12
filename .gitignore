@@ -2,5 +2,5 @@ node_modules
 
 .env
 
-public/uploads/*
+public/uploads/estabelecimento_images/*
 !public/uploads/estabelecimento_images/.gitkeep

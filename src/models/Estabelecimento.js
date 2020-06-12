@@ -5,7 +5,7 @@ class Estabelecimento extends Model {
         super.init({
             nome: DataTypes.STRING,
             sobre: DataTypes.TEXT,
-            horario_funcionamento: DataTypes.STRING,
+            email: DataTypes.STRING,
             endereco: DataTypes.STRING,
             imagem: DataTypes.STRING,
             whatsapp: DataTypes.STRING,
