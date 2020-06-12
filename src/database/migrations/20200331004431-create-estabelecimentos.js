@@ -15,12 +15,15 @@ module.exports = {
       },
       sobre: {
         type: Sequelize.TEXT,
+        allowNull: true,
       },
       endereco: {
         type: Sequelize.STRING,
+        allowNull: true,
       },
       imagem: {
         type: Sequelize.STRING,
+        allowNull: true,
       },
       whatsapp: {
         type: Sequelize.STRING,
