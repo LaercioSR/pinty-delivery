@@ -6,7 +6,7 @@ import './style.css';
 const CardEstabelecimento = ({ estabelecimento }) => {
     return (
         <div className="card-estabelecimento">
-            <img src={estabelecimento.imagem} alt="Imagem Estabelecimento" className="imagem-perfil" />
+            <img src={estabelecimento.imagem_url} alt="Imagem Estabelecimento" className="imagem-perfil" />
             <h3>{estabelecimento.nome}</h3>
 
             <p>{estabelecimento.categoria}</p>

@@ -3,6 +3,15 @@
     max-width: 1100px;
   
     margin: 0 auto;
+
+}
+#cadastrar-estabelecimento .dropzone-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    margin: 0 auto;
 }
   
 #cadastrar-estabelecimento form {
@@ -141,9 +150,9 @@
 }
 
 @media (max-width: 750px) {
-    #cadastrar-estabelecimento form {
+    /* #cadastrar-estabelecimento form {
         margin: 0;
-    }
+    } */
 
     #cadastrar-estabelecimento form .field-group {
         flex-direction: column;

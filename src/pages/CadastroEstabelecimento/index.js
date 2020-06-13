@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+// import ReactCrop from 'react-image-crop';
 
 import NavbarPintyDelivery from '../../componets/NavbarPintyDelivery';
+import ImageCrop from '../../componets/ImageCrop';
 
 import api from '../../services/api';
 import './style.css';
@@ -20,6 +22,7 @@ export default function Home() {
     });
 
     const [categoriaSelecionada, setCategoriaSelecionada] = useState('0');
+    const [imagemSelecionada, setImagemSelecionada] = useState('');
 
     useEffect(() => {
         api.get('estabelecimentos/categorias').then(response => {
@@ -42,20 +45,18 @@ export default function Home() {
         event.preventDefault();
 
         const { nome, email, whatsapp, endereco, sobre } = formData;
-        const categoria = categoriaSelecionada;
+        const categoria_id = categoriaSelecionada;
+        const imagem = imagemSelecionada;
 
-        const data = new FormData();
-
-        data.append('nome', nome);
-        data.append('categoria', categoria);
-        data.append('email', email);
-        data.append('whatsapp', whatsapp);
-        data.append('endereco', endereco);
-        data.append('sobre', sobre);
-
-        // if(selectedFile) {
-        //     data.append('image', selectedFile)
-        // }
+        const data = {
+            nome,
+            email,
+            whatsapp,
+            endereco,
+            sobre,
+            categoria_id,
+            imagem
+        }
 
         await api.post('estabelecimentos', data);
 
@@ -74,7 +75,9 @@ export default function Home() {
                 <form onSubmit={cadastrarEstabelecimento}>
                     <h1>Cadastro de Estabelecimento</h1>
 
-                    {/* <Dropzone onFileUploaded={setSelectedFile} /> */}
+                    <div className="dropzone-image">
+                        <ImageCrop onFileUploaded={setImagemSelecionada} />
+                    </div>
 
                     <fieldset>
                         <legend>
@@ -83,12 +86,12 @@ export default function Home() {
 
                         <div className="field">
                             <label htmlFor="nome">Nome do Estabelecimento</label>
-                            <input type="text" name="nome" id="nome" onChange={tratarAlteracaoInput} />
+                            <input type="text" name="nome" id="nome" onChange={tratarAlteracaoInput} required />
                         </div>
 
                         <div className="field">
                             <label htmlFor="categoria">Categoria</label>
-                            <select name="categoria" id="categoria" value={categoriaSelecionada} onChange={selecionarCategoria}>
+                            <select name="categoria" id="categoria" value={categoriaSelecionada} onChange={selecionarCategoria} required >
                                 <option value="0">Selecione uma Categoria</option>
                                 {categorias.map(categoria => (
                                     <option key={categoria.id} value={categoria.id}>{categoria.descricao}</option>
@@ -99,11 +102,11 @@ export default function Home() {
                         <div className="field-group">
                             <div className="field">
                                 <label htmlFor="email">E-mail</label>
-                                <input type="email" name="email" id="email" onChange={tratarAlteracaoInput} />
+                                <input type="email" name="email" id="email" onChange={tratarAlteracaoInput} required />
                             </div>
                             <div className="field">
                                 <label htmlFor="whatsapp">Whatsapp</label>
-                                <input type="text" name="whatsapp" id="whatsapp" onChange={tratarAlteracaoInput} />
+                                <input type="text" name="whatsapp" id="whatsapp" onChange={tratarAlteracaoInput} required />
                             </div>
                         </div>
 
