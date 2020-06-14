@@ -16,6 +16,7 @@ module.exports = {
         });
 
         const estabelecimentosSelerializado = estabelecimentos.map(estabelecimento => {
+            const linkImagem = estabelecimento.imagem ? 'uploads/estabelecimento_images/' + estabelecimento.imagem : 'uploads/default.png';
             return {
                 id: estabelecimento.id,
                 nome: estabelecimento.nome,
@@ -24,7 +25,8 @@ module.exports = {
                 whatsapp: estabelecimento.whatsapp,
                 email: estabelecimento.email,
                 categoria: estabelecimento.categoria.descricao,
-                imagem_url: process.env.APP_URL + '/uploads/estabelecimento_images/' + estabelecimento.imagem,
+                // imagem_url: process.env.APP_URL + 'uploads/estabelecimento_images/' + estabelecimento.imagem,
+                imagem_url: process.env.APP_URL + linkImagem,
             };
         });
 
