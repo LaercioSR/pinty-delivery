@@ -98,7 +98,8 @@ class ImageCrop extends PureComponent {
             <div className="image-area">
                 {src && (
                     <div>
-                        <input type="file" accept="image/*" onChange={this.onSelectFile} />
+                        <label for="imagem-logo-selecionada" className="label-logo-selecionada">Trocar logo</label>
+                        <input id="imagem-logo-selecionada" name="logo-estabelecimento" type="file" accept="image/*" onChange={this.onSelectFile} />
                     </div>
                 )}
                 <div className="dropzone">
@@ -114,7 +115,8 @@ class ImageCrop extends PureComponent {
                         />
                     ) : (
                             <div>
-                                <input type="file" accept="image/*" onChange={this.onSelectFile} />
+                                <label for="imagem-logo" className="label-logo">Logo do Estabelecimento</label>
+                                <input id="imagem-logo" type="file" accept="image/*" onChange={this.onSelectFile} />
                             </div>
                         )}
                     {/* {croppedImageUrl && (

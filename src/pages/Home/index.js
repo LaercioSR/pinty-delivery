@@ -21,14 +21,22 @@ export default function Home() {
     return (
         <div>
             <div id="navbar-pintydelivery">
-                <NavbarPintyDelivery /><h1>Estabelecimentos</h1>
+                <NavbarPintyDelivery />
             </div>
 
             <div className="home-container">
-                <div className="grid">
-                    {estabelecimentos.map(estabelecimento => (
-                        <CardEstabelecimento key={estabelecimento.id} estabelecimento={estabelecimento} />
-                    ))}
+                <div className="estabelecimentos-container">
+                    <h1>Estabelecimentos</h1>
+                    {estabelecimentos.length > 0 ?
+                        (
+                            <div className="grid">
+                                {estabelecimentos.map(estabelecimento => (
+                                    <CardEstabelecimento key={estabelecimento.id} estabelecimento={estabelecimento} />
+                                ))}
+                            </div>
+                        ) : (
+                            <h4>Não há estabelecimentos cadastrados</h4>
+                        )}
                 </div>
             </div>
         </div>

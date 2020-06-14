@@ -30,14 +30,14 @@ const NavbarPintyDelivery = () => {
 
     return (
         <div>
-            <Navbar bg="light" expand="md" className="navbar-pinty-delivery">
+            <Navbar bg="light" variant="light" expand="md" className="navbar-pinty-delivery">
                 <Navbar.Brand onClick={irParaHome}>
                     <img
                         src={marca}
                         width="190"
                         height="45"
                         className="d-inline-block align-top"
-                        alt="React Bootstrap logo"
+                        alt="Logo Pinty Delivery"
                     />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

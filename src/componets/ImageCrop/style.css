@@ -2,6 +2,31 @@ img {
     max-width: 100%;
 }
 
+/* Esconde o input */
+input[type='file'] {
+    display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+.label-logo {
+    background-color: #FFF;
+    border-radius: 5px;
+    border: dashed 1px #920000;
+    color: #920000;
+    cursor: pointer;
+    margin: 10px;
+    padding: 6px 20px;
+}
+
+.label-logo-selecionada {
+    background-color: #920000;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    margin-top: 3px;
+    padding: 6px 20px;
+}
+
 .image-area {
     display: flex;
     flex-direction: column-reverse;
@@ -10,8 +35,9 @@ img {
 }
 
 .dropzone {
-    height: 300px;
-    width: 500px;
+    height: 250px;
+    max-width: 500px;
+    min-width: 375px;
     background: #F0F0F5;
     border-radius: 10px;
   
@@ -26,7 +52,7 @@ img {
 .dropzone img {
     width: auto;
     max-width: 500px;
-    height: 300px; 
+    height: 250px; 
     object-fit: cover;
     /* border: solid 1px #F0F0F5;
     border-radius: 10px; */
