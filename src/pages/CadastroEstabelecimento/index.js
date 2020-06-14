@@ -67,7 +67,7 @@ export default function Home() {
         const data = {
             nome,
             email,
-            whatsapp: whatsapp.replace(' ', ''),
+            whatsapp: whatsapp.replace(' ', '').replace('(', '').replace(')', '').replace('-', ''),
             endereco,
             sobre,
             categoria_id,
