@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { BsCheckCircle } from "react-icons/bs";
+import { Spinner } from 'react-bootstrap';
 
 import NavbarPintyDelivery from '../../componets/NavbarPintyDelivery';
 import ImageCrop from '../../componets/ImageCrop';
@@ -24,6 +25,7 @@ export default function Home() {
 
     const [categoriaSelecionada, setCategoriaSelecionada] = useState('0');
     const [imagemSelecionada, setImagemSelecionada] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         api.get('estabelecimentos/categorias').then(response => {
@@ -59,6 +61,7 @@ export default function Home() {
 
     async function cadastrarEstabelecimento(event) {
         event.preventDefault();
+        setLoading(true);
 
         const { nome, email, whatsapp, endereco, sobre } = formData;
         const categoria_id = categoriaSelecionada;
@@ -73,8 +76,6 @@ export default function Home() {
             categoria_id,
             imagem
         }
-
-        console.log(data);
 
         await api.post('estabelecimentos', data);
 
@@ -158,8 +159,13 @@ export default function Home() {
                                     </fieldset>
 
                                     <button type="submit">
-                                        Cadastrar estabelecimento
-                                </button>
+                                        {
+                                            loading ?
+                                                <Spinner animation="border" role="status" aria-hidden="true" />
+                                                :
+                                                <span>Cadastrar estabelecimento</span>
+                                        }
+                                    </button>
                                 </form>
                             </div>
                         </>

@@ -11,7 +11,13 @@ const CardEstabelecimento = ({ estabelecimento }) => {
 
             <p>{estabelecimento.categoria}</p>
 
-            <a href={`https://api.whatsapp.com/send?phone=+55${estabelecimento.whatsapp}&text=Olá, gostaria de fazer um pedido`} type="button" className="button-whatsapp">
+            <a
+                href={`https://api.whatsapp.com/send?phone=+55${estabelecimento.whatsapp}&text=Olá, gostaria de fazer um pedido`}
+                type="button"
+                className="button-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <span>Fazer Pedido <FaWhatsapp color="fff" /></span>
             </a>
         </div>
