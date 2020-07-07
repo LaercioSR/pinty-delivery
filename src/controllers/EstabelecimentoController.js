@@ -1,5 +1,6 @@
 const Estabelecimento = require('../models/Estabelecimento');
 const EstabelecimentoCategoria = require('../models/EstabelecimentoCategoria');
+const EmailController = require('./EmailController');
 const FileSystem = require('fs');
 const Crypto = require('crypto');
 
@@ -43,10 +44,6 @@ module.exports = {
             return response.status(400).json({ error: 'Categoria não encontrada' });
         }
 
-        // if (typeof request.file == "object") {
-        //     imagem_nome = request.file.filename;
-        // }
-
         if (imagem != '') {
             imagem_nome = Crypto.randomBytes(8).toString('HEX') + '.png';
 
@@ -65,6 +62,8 @@ module.exports = {
             email,
             categoria_id: categoria_id,
         });
+
+        EmailController.estabelecimentoCadastrado(estabelecimento);
 
         return response.json(estabelecimento);
     },
