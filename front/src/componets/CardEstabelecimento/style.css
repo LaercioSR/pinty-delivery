@@ -1,0 +1,86 @@
+.card-estabelecimento {
+    background: rgb(245, 245, 245)!important;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 7px 7px 5px rgba(131, 131, 131, 0.3);
+    transition: transform 0.5s;
+}
+
+.card-estabelecimento:hover {
+  transform: scale(1.07);
+}
+
+.card-estabelecimento h3 {
+    font-size: 25px;
+    /* text-align: center; */
+    margin: 15px 0 10px 0;
+}
+
+.card-estabelecimento p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.imagem-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    border: 5px solid rgb(230, 230, 230);
+    margin: 0 10px 5px 0;
+    float: left;
+}
+
+.button-whatsapp {
+    background-color: rgb(0, 218, 0);
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 12px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 8px;
+    margin-left: 55px;
+    font-weight: bold;
+    transition: background-color 0.5s;
+}
+
+.button-whatsapp:hover {
+    background-color: rgb(13, 175, 13);
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width: 750px) {
+    .card-estabelecimento {
+        padding: 25px;
+        margin: 0 15px 10px 15px;
+    }
+
+    .imagem-perfil {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card-estabelecimento h3 {
+        font-size: 15px;
+        margin: 10px 0 10px 0;
+    }
+
+    .card-estabelecimento p {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+
+    .button-whatsapp {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 450px) {
+    .button-whatsapp {
+        margin-top: 10px;
+    }
+}
