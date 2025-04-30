@@ -14,7 +14,6 @@ export default function Home() {
   useEffect(() => {
     api.get("/estabelecimentos").then((response) => {
       setEstabelecimentos(response.data);
-      console.log(response.data);
       setLoading(false);
     });
   }, []);
