@@ -28,7 +28,6 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "multer": "^1.4.2",
-    "nodemailer": "^6.4.10",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.12"
