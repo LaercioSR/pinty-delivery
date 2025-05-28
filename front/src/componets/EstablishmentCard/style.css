@@ -1,4 +1,4 @@
-.card-estabelecimento {
+.establishment-card {
     background: rgb(245, 245, 245)!important;
     padding: 15px;
     margin-top: 10px;
@@ -9,22 +9,22 @@
     transition: transform 0.5s;
 }
 
-.card-estabelecimento:hover {
+.establishment-card:hover {
   transform: scale(1.07);
 }
 
-.card-estabelecimento h3 {
+.establishment-card h3 {
     font-size: 25px;
     /* text-align: center; */
     margin: 15px 0 10px 0;
 }
 
-.card-estabelecimento p {
+.establishment-card p {
     font-size: 20px;
     margin-bottom: 25px;
 }
 
-.imagem-perfil {
+.profile-image {
     width: 150px;
     height: 150px;
     border-radius: 10px;
@@ -42,7 +42,7 @@
     outline: none;
     box-shadow: none;
     border-radius: 8px;
-    margin-left: 55px;
+    margin-left: opx;
     font-weight: bold;
     transition: background-color 0.5s;
 }
