@@ -1,15 +1,15 @@
-const Sequelize = require('sequelize');
-const dbConfig = require('../config/database');
+const Sequelize = require("sequelize");
+const dbConfig = require("../config/database");
 
-const EstabelecimentoCategoria = require('../models/EstabelecimentoCategoria');
-const Estabelecimento = require('../models/Estabelecimento');
+const Category = require("../models/Category");
+const Establishment = require("../models/Establishment");
 
 const database = new Sequelize(dbConfig);
 
-EstabelecimentoCategoria.init(database);
-Estabelecimento.init(database);
+Category.init(database);
+Establishment.init(database);
 
-Estabelecimento.associate(database.models);
-EstabelecimentoCategoria.associate(database.models);
+Establishment.associate(database.models);
+Category.associate(database.models);
 
 module.exports = database;

@@ -2,28 +2,28 @@
 @api_url = http://localhost:3333
 
 ### Get All Categories
-GET {{api_url}}/estabelecimentos/categorias HTTP/1.1
+GET {{api_url}}/establishments/categories HTTP/1.1
 
 ### Create Category
-POST {{api_url}}/estabelecimentos/categorias HTTP/1.1
+POST {{api_url}}/establishments/categories HTTP/1.1
 Content-Type: application/json
 
 {
-	"descricao": "Pizzaria"
+	"description": "Pizzaria"
 }
 
 ### Get All Establishments
-GET {{api_url}}/estabelecimentos HTTP/1.1
+GET {{api_url}}/establishments HTTP/1.1
 
 ### Create Establishment
-POST {{api_url}}/estabelecimentos HTTP/1.1
+POST {{api_url}}/establishments HTTP/1.1
 Content-Type: application/json
 
 {
-	"nome": "Pizzaria do Zé",
-	"sobre": "Melhor pizzaria da cidade",
-	"endereco": "Rua A, nº 70",
+	"name": "Pizzaria do Zé",
+	"about": "Melhor pizzaria da cidade",
+	"address": "Rua A, nº 70",
 	"whatsapp": "75 99999-9999",
 	"email": "email@example.com",
-	"categoria_id": 1
+	"category_id": 1
 }

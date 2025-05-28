@@ -1,26 +1,23 @@
-const express = require('express');
+const express = require("express");
 
 // const multer = require('multer');
 // const multerConfig = require('./config/multer');
 
-const EstabelecimentoCategoriaController = require('./controllers/EstabelecimentoCategoriaController');
-const EstabelecimentoController = require('./controllers/EstabelecimentoController');
+const CategoryController = require("./controllers/CategoryController");
+const EstablishmentController = require("./controllers/EstablishmentController");
 
 const routes = express.Router();
-// const upload = multer(multerConfig);
 
-routes.get('/', (request, response) => {
-    return response.send('Hello World!!!');
+routes.get("/", (request, response) => {
+  return response.send("Hello World!!!");
 });
 
-// Categoria de Estabelecimentos
-routes.get('/estabelecimentos/categorias', EstabelecimentoCategoriaController.index);
-routes.post('/estabelecimentos/categorias', EstabelecimentoCategoriaController.store);
+// Establishments Categories
+routes.get("/establishments/categories", CategoryController.index);
+routes.post("/establishments/categories", CategoryController.store);
 
-// Estabelecimentos
-routes.get('/estabelecimentos', EstabelecimentoController.index);
-routes.post('/estabelecimentos', EstabelecimentoController.store);
-// routes.post('/estabelecimentos', upload.single('imagem'), EstabelecimentoController.store);
-
+// Establishments
+routes.get("/establishments", EstablishmentController.index);
+routes.post("/establishments", EstablishmentController.store);
 
 module.exports = routes;
