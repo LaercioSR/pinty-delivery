@@ -1,13 +1,19 @@
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
+
+const { DB_USERNAME, DB_PASSWORD, DB_NAME, DB_HOSTNAME, DB_PORT } = process.env;
+
+if (!DB_USERNAME || !DB_PASSWORD || !DB_NAME || !DB_HOSTNAME || !DB_PORT) {
+  throw new Error("Missing or incomplete database environment variables.");
+}
 
 module.exports = {
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  host: process.env.DB_HOSTNAME,
-  port: process.env.DB_PORT,
+  username: DB_USERNAME,
+  password: DB_PASSWORD,
+  database: DB_NAME,
+  host: DB_HOSTNAME,
+  port: Number(DB_PORT),
   dialect: "postgres",
-  // dialect: 'mysql',
   dialectOptions: {
     ssl: {
       require: true,
