@@ -6,32 +6,40 @@ module.exports = {
       "categories",
       [
         {
-          descricao: "Lanchonete",
+          description: "Lanchonete",
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          descricao: "Padaria",
+          description: "Padaria",
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          descricao: "Supermercado",
+          description: "Supermercado",
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          descricao: "Pizzaria",
+          description: "Pizzaria",
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          descricao: "Restaurante",
+          description: "Restaurante",
           created_at: new Date(),
           updated_at: new Date(),
         },
-        { descricao: "Saúde", created_at: new Date(), updated_at: new Date() },
-        { descricao: "Outro", created_at: new Date(), updated_at: new Date() },
+        {
+          description: "Saúde",
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          description: "Outro",
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
       ],
       {}
     );
