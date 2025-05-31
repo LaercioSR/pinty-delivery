@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 
 import NavbarPintyDelivery from "../../componets/NavbarPintyDelivery";
-import EstablishmentCard from "../../componets/EstablishmentCard";
+import EstablishmentCard from "../../componets/establishmentCard";
 
 import api from "../../services/api";
 import "./style.css";
@@ -12,7 +12,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get("/estabelecimentos").then((response) => {
+    api.get("/establishments").then((response) => {
       setEstablishment(response.data);
       setLoading(false);
     });

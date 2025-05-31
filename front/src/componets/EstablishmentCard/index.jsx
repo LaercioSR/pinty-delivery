@@ -11,9 +11,9 @@ const EstablishmentCard = ({ establishment }) => {
         alt="Imagem Estabelecimento"
         className="profile-image"
       />
-      <h3>{establishment.nome}</h3>
+      <h3>{establishment.name}</h3>
 
-      <p>{establishment.categoria}</p>
+      <p>{establishment.category}</p>
     
       <a
         href={`https://api.whatsapp.com/send?phone=+55${establishment.whatsapp}&text=Olá, gostaria de fazer um pedido`}
