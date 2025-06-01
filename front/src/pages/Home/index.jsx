@@ -12,7 +12,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get("/estabelecimentos").then((response) => {
+    api.get("/establishments").then((response) => {
       setEstablishment(response.data);
       setLoading(false);
     });

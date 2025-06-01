@@ -1,7 +1,7 @@
-import React /*useState, useEffect*/ from "react";
-import { Navbar, Nav /*NavDropdown, Form, Button*/ } from "react-bootstrap";
-// import { useHistory } from 'react-router-dom';
-// import { MdSearch } from 'react-icons/md';
+import {React, useState, useEffect} from "react";
+import { Navbar, Nav, NavDropdown, Form, Button} from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
+import { MdSearch } from 'react-icons/md';
 
 // import api from '../../services/api';
 
@@ -10,70 +10,61 @@ import "./style.css";
 import marca from "../../assets/marca.png";
 
 const NavbarPintyDelivery = () => {
-  // const history = useHistory();
+  const navigate = useNavigate();
 
-  // const [categorias, setCategorias] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   // useEffect(() => {
-  //     api.get('estabelecimentos/categorias').then(response => {
+  //     api.get('establishment/categories').then(response => {
   //         setCategorias(response.data);
   //     })
   // }, []);
 
-  function irParaHome() {
-    // history.push('/');
+  function homePage() {
+    navigate('/');
   }
 
-  function irParaCadastroEstabelecimento() {
-    // history.push('/estabelecimentos/cadastrar');
+  function establishmentRegisterPage() {
+    navigate('/estabelecimentos/cadastrar');
   }
 
   return (
-    <div>
+    <div className="nav-container">
       <Navbar
-        bg="light"
         variant="light"
         expand="md"
         className="navbar-pinty-delivery"
       >
-        <Navbar.Brand onClick={irParaHome}>
+        <Navbar.Brand className="logo" onClick={homePage}>
           <img
             src={marca}
             width="190"
             height="45"
-            className="d-inline-block align-top"
+            className=""
             alt="Logo Pinty Delivery"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          {/* <Nav className="mr-auto"> */}
-          <Nav className="ml-auto">
-            <Nav.Link
-              onClick={irParaCadastroEstabelecimento}
-              className="mr-auto"
-            >
-              Registre seu Delivery
-            </Nav.Link>
-          </Nav>
-          {/* <Nav className="ml-auto">
 
-                        <NavDropdown title="Categorias" className="mr-auto" alignRight>
-                            {categorias.map(categoria => (
-                                <NavDropdown.Item href={"/estabelecimentos/categorias/" + categoria.id} key={categoria.id} className="item-dropdown">{categoria.descricao}</NavDropdown.Item>
-                            ))}
-                        </NavDropdown>
-                        <Nav.Item className="divisor" role="separator"/>
-                    </Nav> */}
-          {/* <Form inline>
-                        <Form.Control type="text" placeholder="Buscar estabelecimento" className="mr-auto  input-busca" />
-                    </Form> */}
-          {/* <Form inline>
-                            <Form.Control type="text" placeholder="Buscar estabelecimento" className="mr-sm-2" />
-                            <Button onClick={() => {}} type="button">
-                                <MdSearch size={22} color="#fff"/>
-                            </Button>
-                        </Form> */}
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="registerButton">
+            <Nav.Link onClick={establishmentRegisterPage} className="mr-auto">Registre seu Delivery</Nav.Link>
+          </Nav>
+
+          <Nav className="categoriesDropdown">
+            <NavDropdown title="Categorias" className="mr-auto" alignRight>
+              {categories.map(categoria => (
+                <NavDropdown.Item href={"/estabelecimentos/categorias/" + categoria.id} key={categoria.id} className="item-dropdown">{categoria.descricao}</NavDropdown.Item>
+              ))}
+            </NavDropdown>
+            <Nav.Item className="divisor" role="separator"/>
+          </Nav>
+
+          <Form className="searchContent" inline>
+            <Form.Control type="text" placeholder="Buscar estabelecimento" className="mr-auto searchInput" />
+            <Button onClick={() => {}} type="button">
+              <MdSearch size={22} background="#fff" color="#fff"/>
+            </Button>
+          </Form>
         </Navbar.Collapse>
       </Navbar>
     </div>
