@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 
 import NavbarPintyDelivery from "../../componets/NavbarPintyDelivery";
-import EstablishmentCard from "../../componets/establishmentCard";
+import EstablishmentCard from "../../componets/EstablishmentCard";
 
 import api from "../../services/api";
 import "./style.css";
