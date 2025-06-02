@@ -1,10 +1,8 @@
-const Category = require("../models/Category");
+const { CategoryService } = require("../services");
 
 module.exports = {
   async index(request, response) {
-    const categories = await Category.findAll({
-      attributes: ["id", "description"],
-    });
+    const categories = await CategoryService.listCategories();
 
     return response.json(categories);
   },
@@ -12,9 +10,7 @@ module.exports = {
   async store(request, response) {
     const { description } = request.body;
 
-    const category = await Category.create({
-      description,
-    });
+    const category = await CategoryService.create({ description });
 
     return response.json(category);
   },
