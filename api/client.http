@@ -25,5 +25,5 @@ Content-Type: application/json
 	"address": "Rua A, nº 70",
 	"whatsapp": "75 99999-9999",
 	"email": "email@example.com",
-	"category_id": 1
+	"category_id": 2
 }
