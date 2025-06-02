@@ -53,7 +53,7 @@ class EstablishmentService {
         whatsapp: establishment.whatsapp,
         email: establishment.email,
         category: establishment.category.description,
-        image_url: process.env.APP_URL + linkImage,
+        image_url: (process.env.APP_URL ?? "") + linkImage,
       };
     });
 
