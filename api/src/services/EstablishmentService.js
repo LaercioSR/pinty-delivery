@@ -12,14 +12,14 @@ class EstablishmentService {
 
     for (const field of requiredFields) {
       if (!data[field]) {
-        throw new Error(`O campo '${field}' é obrigatório.`);
+        throw new Error("Todos os campos são obrigatórios");
       }
     }
 
     // Verifica se a categoria existe
     const category = await CategoryRepository.findById(data.category_id);
     if (!category) {
-      throw new Error("Categoria não encontrada.");
+      throw new Error("Categoria não encontrada");
     }
 
     let image_name;
@@ -56,13 +56,13 @@ class EstablishmentService {
 
   async getEstablishmentById(id) {
     if (!id) {
-      throw new Error("ID do estabelecimento é obrigatório.");
+      throw new Error("ID do estabelecimento é obrigatório");
     }
 
     const establishment = await EstablishmentRepository.findById(id);
 
     if (!establishment) {
-      throw new Error("Estabelecimento não encontrado.");
+      throw new Error("Estabelecimento não encontrado");
     }
 
     return establishment;
@@ -86,7 +86,7 @@ class EstablishmentService {
       return imageName;
     } catch (error) {
       console.error("Erro ao salvar imagem:", error);
-      throw new Error("Falha ao processar a imagem.");
+      throw new Error("Falha ao processar a imagem");
     }
   }
 }
