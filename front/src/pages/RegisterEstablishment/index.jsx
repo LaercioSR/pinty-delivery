@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { useHistory } from 'react-router-dom';
 import { BsCheckCircle } from "react-icons/bs";
 import { Spinner } from "react-bootstrap";
 
@@ -9,103 +8,102 @@ import ImageCrop from "../../componets/ImageCrop";
 import api from "../../services/api";
 import "./style.css";
 
-export default function Home() {
-  //   const history = useHistory();
+export default function RegisterEstablishment() {
+  //   const history = useHistory();]
 
-  const [categorias, setCategorias] = useState([]);
-  const [cadastrado, setCadastrado] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [registered, setRegistered] = useState(false);
 
   const [formData, setFormData] = useState({
-    nome: "",
+    name: "",
     email: "",
     whatsapp: "",
-    endereco: "",
-    sobre: "",
+    address: "",
+    about: "",
   });
 
-  const [categoriaSelecionada, setCategoriaSelecionada] = useState("0");
-  const [imagemSelecionada, setImagemSelecionada] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("0");
+  const [selectedImage, setSelectedImage] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    api.get("estabelecimentos/categorias").then((response) => {
-      setCategorias(response.data);
+    api.get("establishments/categories").then((response) => {
+      setCategories(response.data);
     });
   }, []);
 
-  function telefone() {
-    const inputTelefone = document.getElementById("whatsapp");
+  function formatPhoneNumber() {
+    const phoneInput = document.getElementById("whatsapp");
 
-    let valor = inputTelefone.value;
-    valor = valor.replace(/\D/g, "");
-    valor = valor.replace(/^(\d\d)(\d)/g, "($1) $2");
-    if (valor.length === 14) {
-      valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+    let value = phoneInput.value;
+    value = value.replace(/\D/g, "");
+    value = value.replace(/^(\d\d)(\d)/g, "($1) $2");
+    if (value.length === 14) {
+      value = value.replace(/(\d{5})(\d)/, "$1-$2");
     } else {
-      valor = valor.replace(/(\d{4})(\d)/, "$1-$2");
+      value = value.replace(/(\d{4})(\d)/, "$1-$2");
     }
 
-    document.getElementById("whatsapp").value = valor;
+    phoneInput.value = value;
   }
 
-  function selecionarCategoria(event) {
-    const categoria = event.target.value;
-    setCategoriaSelecionada(categoria);
+  function handleCategoryChange(event) {
+    const category = event.target.value;
+    setSelectedCategory(category);
   }
 
-  function tratarAlteracaoInput(event) {
+  function handleInputChange(event) {
     const { name, value } = event.target;
-
     setFormData({ ...formData, [name]: value });
   }
 
-  async function cadastrarEstabelecimento(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     setLoading(true);
 
-    const { nome, email, whatsapp, endereco, sobre } = formData;
-    const categoria_id = categoriaSelecionada;
-    const imagem = imagemSelecionada;
+    const { name, email, whatsapp, address, about } = formData;
+    const category_id = selectedCategory;
+    const image = selectedImage;
 
     const data = {
-      nome,
+      name,
       email,
       whatsapp: whatsapp
         .replace(" ", "")
         .replace("(", "")
         .replace(")", "")
         .replace("-", ""),
-      endereco,
-      sobre,
-      categoria_id,
-      imagem,
+      address,
+      about,
+      category_id,
+      image,
     };
 
-    await api.post("estabelecimentos", data);
+    await api.post("establishments", data);
 
     setTimeout(() => {
-      setCadastrado(true);
+      setRegistered(true);
     }, 500);
 
     setTimeout(() => {
-      irParaHome();
+      redirectToHome();
     }, 5000);
   }
 
-  function irParaHome() {
-    // history.push("/");
+  function redirectToHome() {
+     // history.push("/");
   }
 
   return (
     <div>
-      {cadastrado ? (
-        <div className="cadastrado-sucesso" onClick={irParaHome}>
+      {registered ? (
+        <div className="registered-success" onClick={redirectToHome}>
           <BsCheckCircle color="920000" size={60} />
           <h1>
             Solicitação de cadastro de <br />
             estabelecimento feito com sucesso!
           </h1>
-          <p>Redirecionando</p>
+          <p>Redirecionando...</p>
         </div>
       ) : (
         <>
@@ -113,12 +111,12 @@ export default function Home() {
             <NavbarPintyDelivery />
           </div>
 
-          <div id="cadastrar-estabelecimento">
-            <form onSubmit={cadastrarEstabelecimento}>
+          <div id="register-establishment">
+            <form onSubmit={handleSubmit}>
               <h1>Cadastro de Estabelecimento</h1>
 
               <div className="dropzone-image">
-                <ImageCrop onFileUploaded={setImagemSelecionada} />
+                <ImageCrop onFileUploaded={setSelectedImage} />
               </div>
 
               <fieldset>
@@ -127,34 +125,34 @@ export default function Home() {
                 </legend>
 
                 <div className="field">
-                  <label htmlFor="nome">
+                  <label htmlFor="name">
                     Nome do Estabelecimento{" "}
-                    <span className="campo-obrigatorio">*</span>
+                    <span className="required-field">*</span>
                   </label>
                   <input
                     type="text"
-                    name="nome"
-                    id="nome"
-                    onChange={tratarAlteracaoInput}
+                    name="name"
+                    id="name"
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
 
                 <div className="field">
-                  <label htmlFor="categoria">
-                    Categoria <span className="campo-obrigatorio">*</span>
+                  <label htmlFor="category">
+                    Categoria <span className="required-field">*</span>
                   </label>
                   <select
-                    name="categoria"
-                    id="categoria"
-                    value={categoriaSelecionada}
-                    onChange={selecionarCategoria}
+                    name="category"
+                    id="category"
+                    value={selectedCategory}
+                    onChange={handleCategoryChange}
                     required
                   >
-                    <option value="0">Selecione uma Categoria</option>
-                    {categorias.map((categoria) => (
-                      <option key={categoria.id} value={categoria.id}>
-                        {categoria.descricao}
+                    <option value="0">Select a Category</option>
+                    {categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.description}
                       </option>
                     ))}
                   </select>
@@ -163,26 +161,26 @@ export default function Home() {
                 <div className="field-group">
                   <div className="field">
                     <label htmlFor="email">
-                      E-mail <span className="campo-obrigatorio">*</span>
+                      Email<span className="required-field">*</span>
                     </label>
                     <input
                       type="email"
                       name="email"
                       id="email"
-                      onChange={tratarAlteracaoInput}
+                      onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div className="field">
                     <label htmlFor="whatsapp">
-                      Whatsapp <span className="campo-obrigatorio">*</span>
+                      Whatsapp<span className="required-field">*</span>
                     </label>
                     <input
                       type="text"
                       name="whatsapp"
                       id="whatsapp"
-                      onKeyUp={telefone}
-                      onChange={tratarAlteracaoInput}
+                      onKeyUp={formatPhoneNumber}
+                      onChange={handleInputChange}
                       placeholder="xx xxxxx-xxxx"
                       maxLength="15"
                       required
@@ -191,21 +189,21 @@ export default function Home() {
                 </div>
 
                 <div className="field">
-                  <label htmlFor="endereco">Endereço</label>
+                  <label htmlFor="address">Endereço</label>
                   <input
                     type="text"
-                    name="endereco"
-                    id="endereco"
-                    onChange={tratarAlteracaoInput}
+                    name="address"
+                    id="address"
+                    onChange={handleInputChange}
                   />
                 </div>
 
                 <div className="field">
-                  <label htmlFor="sobre">Sobre</label>
+                  <label htmlFor="about">Sobre</label>
                   <textarea
-                    name="sobre"
-                    id="sobre"
-                    onChange={tratarAlteracaoInput}
+                    name="about"
+                    id="about"
+                    onChange={handleInputChange}
                     rows="5"
                     maxLength="255"
                   />
