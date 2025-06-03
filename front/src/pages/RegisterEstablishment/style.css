@@ -1,4 +1,4 @@
-.cadastrado-sucesso {
+.registered-success {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -11,19 +11,19 @@
   justify-content: center;
 }
 
-.cadastrado-sucesso h1 {
+.registered-success h1 {
   margin-top: 0;
   color: #fff;
 }
 
-#cadastrar-estabelecimento {
+#register-establishment {
   width: 100%;
   max-width: 1100px;
 
   margin: 0 auto;
 }
 
-#cadastrar-estabelecimento .dropzone-image {
+#register-establishment .dropzone-image {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@
   margin: 0 auto;
 }
 
-#cadastrar-estabelecimento form {
+#register-establishment form {
   margin: 80px auto;
   padding: 64px;
   max-width: 1200px;
@@ -45,17 +45,17 @@
     align-items: center; */
 }
 
-#cadastrar-estabelecimento form h1 {
+#register-establishment form h1 {
   font-size: 36px;
 }
 
-#cadastrar-estabelecimento form fieldset {
+#register-establishment form fieldset {
   margin-top: 64px;
   min-inline-size: auto;
   border: 0;
 }
 
-#cadastrar-estabelecimento form legend {
+#register-establishment form legend {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -63,22 +63,22 @@
   margin-bottom: 40px;
 }
 
-#cadastrar-estabelecimento form legend h2 {
+#register-establishment form legend h2 {
   font-size: 24px;
 }
 
-#cadastrar-estabelecimento form legend span {
+#register-establishment form legend span {
   font-size: 14px;
   font-weight: normal;
   color: var(--text-color);
 }
 
-#cadastrar-estabelecimento form .field-group {
+#register-establishment form .field-group {
   flex: 1;
   display: flex;
 }
 
-#cadastrar-estabelecimento form .field {
+#register-establishment form .field {
   flex: 1;
 
   display: flex;
@@ -86,10 +86,10 @@
   margin-bottom: 24px;
 }
 
-#cadastrar-estabelecimento form .field input[type="text"],
-#cadastrar-estabelecimento form .field input[type="email"],
-#cadastrar-estabelecimento form .field input[type="number"],
-#cadastrar-estabelecimento form .field textarea {
+#register-establishment form .field input[type="text"],
+#register-establishment form .field input[type="email"],
+#register-establishment form .field input[type="number"],
+#register-establishment form .field textarea {
   flex: 1;
   background: #f0f0f5;
   border-radius: 8px;
@@ -99,11 +99,11 @@
   color: #6c6c80;
 }
 
-#cadastrar-estabelecimento form .field textarea {
+#register-establishment form .field textarea {
   resize: none;
 }
 
-#cadastrar-estabelecimento form .field select {
+#register-establishment form .field select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -116,41 +116,41 @@
   color: #6c6c80;
 }
 
-#cadastrar-estabelecimento form .field input::placeholder {
+#register-establishment form .field input::placeholder {
   color: #a0a0b2;
 }
 
-#cadastrar-estabelecimento form .field label {
+#register-establishment form .field label {
   font-size: 14px;
   margin-bottom: 8px;
 }
 
-#cadastrar-estabelecimento form .field :disabled {
+#register-establishment form .field :disabled {
   cursor: not-allowed;
 }
 
-#cadastrar-estabelecimento form .field-group .field + .field {
+#register-establishment form .field-group .field + .field {
   margin-left: 24px;
 }
 
-#cadastrar-estabelecimento form .field-group input + input {
+#register-establishment form .field-group input + input {
   margin-left: 24px;
 }
 
-#cadastrar-estabelecimento form .field-check {
+#register-establishment form .field-check {
   flex-direction: row;
   align-items: center;
 }
 
-#cadastrar-estabelecimento form .field-check input[type="checkbox"] {
+#register-establishment form .field-check input[type="checkbox"] {
   background: #f0f0f5;
 }
 
-#cadastrar-estabelecimento form .field-check label {
+#register-establishment form .field-check label {
   margin: 0 0 0 8px;
 }
 
-#cadastrar-estabelecimento form button {
+#register-establishment form button {
   width: 260px;
   height: 56px;
   background: red;
@@ -165,7 +165,7 @@
   cursor: pointer;
 }
 
-#cadastrar-estabelecimento form button:hover {
+#register-establishment form button:hover {
   background: #920000;
 }
 
@@ -174,7 +174,7 @@
 }
 
 @media (max-width: 1250px) {
-  #cadastrar-estabelecimento {
+  #register-establishment {
     width: 85%;
   }
 }
@@ -185,23 +185,23 @@
     font-size: 20px;
   }
 
-  #cadastrar-estabelecimento {
+  #register-establishment {
     width: 95%;
   }
 
-  #cadastrar-estabelecimento .dropzone-image {
+  #register-establishment .dropzone-image {
     width: 15%;
   }
 
-  #cadastrar-estabelecimento form .field-group {
+  #register-establishment form .field-group {
     flex-direction: column;
   }
 
-  #cadastrar-estabelecimento form .field-group .field + .field {
+  #register-establishment form .field-group .field + .field {
     margin-left: 0;
   }
 
-  #cadastrar-estabelecimento form .field-group input + input {
+  #register-establishment form .field-group input + input {
     margin-left: 0;
   }
 }
