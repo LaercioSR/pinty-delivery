@@ -7,14 +7,14 @@ const EstablishmentCard = ({ establishment }) => {
   return (
     <div className="establishment-card">
       <img
-        src={establishment.imagem_url}
+        src={establishment.image_url}
         alt="Imagem Estabelecimento"
         className="profile-image"
       />
       <h3>{establishment.name}</h3>
 
       <p>{establishment.category}</p>
-    
+
       <a
         href={`https://api.whatsapp.com/send?phone=+55${establishment.whatsapp}&text=Olá, gostaria de fazer um pedido`}
         type="button"
